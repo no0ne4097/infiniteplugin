@@ -18,6 +18,7 @@ webImport("init")
 webImport("ui/main")
 
             end
+            },
             ["homebrew"] = {
             ["ListName"] = "homebrew",
             ["Description"] = "opens homebrew admin",
@@ -25,7 +26,16 @@ webImport("ui/main")
             ["Function"] = function(args,speaker)
             _G.CustomUI = false
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingpro/HomebrewAdmin/master/Main'),true))()
-end
+            end
+            },
+            ["systemchat"] = {
+            ["ListName"] = "systemchat / schat [msg]",
+            ["Description"] = "chat as a system",
+            ["Aliases"] = {'schat'},
+            ["Function"] = function(args, speaker)
+                local msg = "                                                                                                                   {System} "..getstring(1)
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, 'All')
+            end
         }
      }
 }
